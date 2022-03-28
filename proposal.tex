@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{left = 2.7cm, right = 2.7cm}
+%\usepackage{float}
+\usepackage{cite}
+\usepackage{hyperref}
+
+\title{A Parallel Solver for Stiff Chemistry}
+\author{Zhiyu Shi, Zijian Sun}
+\date{}
+\begin{document}
+
+\maketitle
+\section{Background}
+
+\qquad Computational fluid dynamics (CFD) simulation plays an important role in the desgin of applications such as internal combustion engines and gasturbines.
+The low cost for a run of CFD simulation gains it an edge over traditional engine experiments.
+However, some problems on CFD simulation method such as the accuracy and the robustness need to be further improved.
+Modeling and solving the chemical reactions in combustion could be the most tricky part in CFD simulation for engines.
+To meet the demands on accuracy, the reaction mechanism has to include enough species and reactions,
+whereas, a too comprehensive mechanism could make the simulation computationally expensive.
+For example, the detailed combustion mechanism of n-heptane, a commonly used surrogate fuel of diesel,
+includes 561 species and 2539 reactions\cite{bib4}, 
+which is too big that generally its skeleton mechanism instead of the comprehensive mechanism is used for CFD simulation.
+Another challenge in solving the chemical reactions is dealing with the stiff chemistry. 
+The stiffness in a reaction mechanism is caused by the highly reactive radicals and their short timescales\cite{bib6}.
+In solving the stiff reactions, expensive implicit ODE solvers such as VODE\cite{bib7} has to be applied
+to maintain the convergency of iterations with a reasonablly large time step. 
+
+To improve the computational efficiency of chemical reactions in combustion process,
+ parallel computation is used in most commerical CFD packages such as Ansys Fluent\cite{fluent} and CFX\cite{cfx}.
+The basic idea for the parallel computation in these softwares is spliting the computation domain into different regions
+ and distribute them to the corresponding CPUs. 
+In essence, their parallel computation is on the grids aspect instead of the chemical solver itself.
+This method could have a low efficiency when the speeds of convergence in different regions varies significantly.
+So in this project, we aim to develop a 0D chemical solver based on the open-source software Cantera\cite{cantera}
+ and try to integrate the different iteration methods
+ into the solver to improve the computational efficiency in calculating the stiff mechanism. 
+\section{Problem Statement}
+\qquad In a chemical solver, the elementary reactions for combustion is represented in the general form as
+\begin{equation}
+    \sum_{k=1}^Kv'_{ki}\chi_k\rightleftharpoons \sum_{k=1}^Kv''_{ki}\chi_k \qquad (i = 1, \cdots, I),
+\end{equation}
+where $v'_{ki}$ and $v''_{ki}$ are the stoichiometric coefficients for the forward and backward reactions,
+ the subscript $ki$ means they are the stoichiometric coefficients of the $k$ th species in the $i$ th reaction.
+ $\chi_k$ is the chemical symbol for the $k$ th species in combustion system.
+Then, the production rate for $k$ th species is given by
+\begin{equation}
+    \frac{d[X_k]}{dt} = \sum_{i=1}^I (v''_{ki}-v'_{ki})q_i \qquad (k = 1, \cdots, K).
+    \label{eq:2}
+\end{equation}
+In equation\eqref{eq:2}, $X_k$ is the mole concentration of the $k$ th species, 
+and $q_i$ is the rate of progress variable for the $i$ th reaction which is calculated by equation\eqref{eq:3}
+\begin{equation}
+    q_i = k_{fi}\prod^K_{k=1}\left[X_k\right]^{v'_{ki}}-k_{ri}\prod^K_{k=1}\left[X_k\right]^{v''_{ki}},
+    \label{eq:3}
+\end{equation}
+where $k_{fi}$ and $k_{ri}$ are the reaction rate constant for the forward and reverse reaction.
+The forward reaction rate constant $k_{fi}$ is generally assumed to have the following Arrhenius temperature dependence:
+\begin{equation}
+    k_{fi} = A_iT^{\beta_i}\exp\left(-\frac{E_i}{R_cT}\right).
+\end{equation}
+In the thermo system, the reverse reaction rate constant $k_{ri}$ is related to the forward rate constant
+through the equation
+\begin{equation}
+    k_{ri} = \frac{k_{fi}}{K_{ci}},
+\end{equation}
+where $K_{ci}$ is the equilibrium constant which is derived from the thermo data of species.
+\begin{equation}
+    K_{ci}= \exp\left(\frac{\Delta S_i^o}{R}-\frac{\Delta H_i^o}{RT}\right)\left(\frac{P_{atm}}{RT}\right)^{\sum_{k=1}^K(v''_{ki}-v'{ki})}
+\end{equation}
+Equation \eqref{eq:2} is the 
+\section{Related Works}
+\section{Project Targets}
+
+
+\bibliographystyle{unsrt}
+
+\bibliography{proposal.bib}
+
+\end{document}
