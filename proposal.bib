@@ -1,0 +1,126 @@
+@article{bib1,
+title = {Numerical methods for stiff  reaction-diffusion systems},
+journal = {Discrete \& Continuous Dynamical Systems - B},
+volume = {7},
+number = {3},
+pages = {515-525},
+year = {2007},
+author = {Ching-Shan Chou and Yong-Tao Zhang and Rui Zhao and Qing Nie},
+}
+
+@article{bib2,
+title = {PIROCK: A swiss-knife partitioned implicit–explicit orthogonal Runge–Kutta Chebyshev integrator for stiff diffusion–advection–reaction problems with or without noise},
+journal = {Journal of Computational Physics},
+volume = {242},
+pages = {869-888},
+year = {2013},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2013.02.009},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999113001198},
+author = {Assyr Abdulle and Gilles Vilmart},
+keywords = {ROCK method, Stabilized second-order integration method, Partitioned Runge–Kutta methods, Stiff problems, Advection–diffusion–reaction problems, Stochastic problems},
+abstract = {A partitioned implicit–explicit orthogonal Runge–Kutta method (PIROCK) is proposed for the time integration of diffusion–advection–reaction problems with possibly severely stiff reaction terms and stiff stochastic terms. The diffusion terms are solved by the explicit second order orthogonal Chebyshev method (ROCK2), while the stiff reaction terms (solved implicitly) and the advection and noise terms (solved explicitly) are integrated in the algorithm as finishing procedures. It is shown that the various coupling (between diffusion, reaction, advection and noise) can be stabilized in the PIROCK method. The method, implemented in a single black-box code that is fully adaptive, provides error estimators for the various terms present in the problem, and requires from the user solely the right-hand side of the differential equation. Numerical experiments and comparisons with existing Chebyshev methods, IMEX methods and partitioned methods show the efficiency and flexibility of our new algorithm.}
+}
+
+@article{bib3,
+title = {On the merits of extrapolation-based stiff ODE solvers for combustion CFD},
+journal = {Combustion and Flame},
+volume = {174},
+pages = {1-15},
+year = {2016},
+issn = {0010-2180},
+doi = {https://doi.org/10.1016/j.combustflame.2016.09.018},
+url = {https://www.sciencedirect.com/science/article/pii/S001021801630267X},
+author = {A. Imren and D.C. Haworth},
+keywords = {Computational fluid dynamics, Detailed chemistry, Stiff ODE solver, Dynamic adaptive chemistry, Compression-ignition engine},
+abstract = {In applications including compression-ignition engines, there is a need to accommodate more realistic chemistry in computational fluid dynamics (CFD) simulations. Here, we consider approaches where a chemical mechanism is implemented in an application CFD code, an operator-splitting strategy is used to isolate the chemical source terms, and a stiff ordinary differential equation (ODE) solver is used to compute the changes in composition due to chemical reactions for each computational element. Chemical source terms often dominate the computational effort, and reducing the high computational cost associated with realistic chemistry has been the subject of extensive research. This includes work on improved stiff ODE solvers, which in most cases has centered on backward differentiation formula (BDF) methods. Here a different class of solvers is considered, based on extrapolation methods. Key elements of stiff ODE solvers are reviewed briefly, focusing on differences between BDF methods and extrapolation methods. Issues related to using a stiff ODE solver with operator splitting in a CFD code (where the solver is repeatedly stopped and restarted) are emphasized. Homogeneous-reactor results are presented first. There the relationship between user-specified error tolerances and solution accuracy is explored, tradeoffs between accuracy and CPU time are shown, and close-to-linear increase in CPU time with increasing chemical mechanism size is demonstrated. Engine results are presented next, including both homogeneous-charge compression-ignition engines, and direct-injection (nonhomogeneous) compression-ignition engines. There some results are presented where the stiff ODE solver is combined with a dynamic adaptive chemistry scheme. In all cases, it is found that the extrapolation solver offers significant advantages in accuracy and computational efficiency compared to the BDF solver. While the results presented are for one BDF solver (CVODE) and one extrapolation solver (SEULEX), it is anticipated that the insight into how stiff ODE solvers behave in combustion CFD will be broadly applicable to other solvers in these general classes.}
+}
+
+@article{bib4,
+title = {A Comprehensive Modeling Study of n-Heptane Oxidation},
+journal = {Combustion and Flame},
+volume = {114},
+number = {1},
+pages = {149-177},
+year = {1998},
+issn = {0010-2180},
+doi = {https://doi.org/10.1016/S0010-2180(97)00282-4},
+url = {https://www.sciencedirect.com/science/article/pii/S0010218097002824},
+author = {H.J. Curran and P. Gaffuri and W.J. Pitz and C.K. Westbrook},
+abstract = {A detailed chemical kinetic mechanism has been developed and used to study the oxidation of n-heptane in flow reactors, shock tubes, and rapid compression machines. Over the series of experiments numerically investigated, the initial pressure ranged from 1–42 atm, the temperature from 550–1700 K, the equivalence ratio from 0.3–1.5, and nitrogen-argon dilution from 70–99%. The combination of ignition delay time and species composition data provide for a stringent test of the chemical kinetic mechanism. The reactions are classed into various types, and the reaction rate constants are given together with an explanation of how the rate constants were obtained. Experimental results from the literature of ignition behind reflected shock waves and in a rapid compression machine were used to develop and validate the reaction mechanism at both low and high temperatures. Additionally, species composition data from a variable pressure flow reactor and a jet-stirred reactor were used to help complement and refine the low-temperature portions of the reaction mechanism. A sensitivity analysis was performed for each of the combustion environments. This analysis showed that the low-temperature chemistry is very sensitive to the formation of stable olefin species from hydroperoxy-alkyl radicals and to the chain-branching steps involving ketohydroperoxide molecules.}
+}
+
+@article{bib5,
+title = {A dynamic adaptive method for hybrid integration of stiff chemistry},
+journal = {Combustion and Flame},
+volume = {162},
+number = {2},
+pages = {287-295},
+year = {2015},
+issn = {0010-2180},
+doi = {https://doi.org/10.1016/j.combustflame.2014.07.023},
+url = {https://www.sciencedirect.com/science/article/pii/S0010218014002272},
+author = {Yang Gao and Yufeng Liu and Zhuyin Ren and Tianfeng Lu},
+keywords = {Dynamic adaptive method for hybrid integration, Stiff chemistry solver, Operator splitting scheme, Strang splitting scheme, Computational singular perturbation},
+abstract = {The operator-splitting schemes for integration of stiff diffusion–reaction systems were found to fail in error control, i.e. incurring O(1) relative errors, with splitting time steps larger than that required for fully explicit integration, when significant non-chemical radical sources are present. It was shown that, by excluding the transport term from the chemistry integration, errors by orders of magnitude may occur in radical concentrations solved in the chemistry sub-step, resulting in significant errors in the major species. The failing scenario is demonstrated with a toy problem and an unsteady perfectly-stirred reactor (PSR) for hydrogen/air with significant H radical concentration at inlet. A dynamic adaptive method for hybrid integration (AHI) of stiff chemistry is then proposed as a substitute for the operator-splitting schemes in such cases. The AHI method can obtain accurate solutions by integrating the fast species and reactions implicitly and the non-stiff terms, including slow reactions and non-chemical source terms, explicitly. Specifically, fast species and reactions are identified on-the-fly based on their analytically derived timescales, the rates of slow variables are evaluated explicitly and those of fast species are evaluated partial-implicitly. As such, the number of variables to be implicitly solved at each integration time step is reduced to the number of the fast species, resulting in a smaller Jacobian matrix and consequently lower computational cost compared with the fully implicit solvers. The hybrid method is validated in auto-ignition for hydrogen/air with different equivalence ratios and initial temperatures, and compared with the Strang splitting scheme for the toy problem and the unsteady PSR. Results show significant improvement in accuracy using the AHI method.}
+}
+
+@article{bib6,
+title = {A sparse stiff chemistry solver based on dynamic adaptive integration for efficient combustion simulations},
+journal = {Combustion and Flame},
+volume = {172},
+pages = {183-193},
+year = {2016},
+issn = {0010-2180},
+doi = {https://doi.org/10.1016/j.combustflame.2016.07.009},
+url = {https://www.sciencedirect.com/science/article/pii/S0010218016301651},
+author = {Chao Xu and Yang Gao and Zhuyin Ren and Tianfeng Lu},
+keywords = {Sparse ODE solver, Dynamic adaptive hybrid integration, Stiff chemistry, Detailed mechanisms, Chemically reacting flow},
+abstract = {A sparse stiff chemistry solver based on dynamic adaptive hybrid integration (AHI-S) is developed and demonstrated for efficient combustion simulations. In a previous study, a dynamic adaptive method for hybrid integration (AHI) was developed to speed up the time integration of chemically reacting flows with detailed chemistry. The AHI method solves the fast subcomponent of chemistry implicitly and the slow subcomponent of chemistry and transport explicitly, and it was shown that AHI is more accurate and efficient than the operator-splitting schemes when there are significant radical sources from the transport term. In the present study, the AHI method is first improved to minimize the number of nontrivial entries in the Jacobian. Sparse matrix techniques are further integrated into AHI to achieve high computational efficiency. The performance of the new AHI-S solver is investigated in constant-pressure auto-ignition systems using different mechanisms that consist of 9–2878 species. It is shown that the computational cost of the AHI-S solver is overall linearly proportional to the mechanism size and is comparable to that of evaluating reaction rates using CHEMKIN-II subroutines. The AHI-S solver achieves speed-up factors ranging from approximately 10, for the 9-species hydrogen mechanism, to approximately 3000, for the 2878-species biodiesel mechanism, compared with the fully implicit VODE solver with Jacobian evaluated through numerical perturbations and factorized with dense matrix operations. It is further found that for mechanisms with less than approximately 100 species, the time saving of AHI-S is primarily attributed to the reduced size of the implicit core of the governing equations, while for mechanisms with more than 100 species, the computational cost of VODE is dominated by the dense LU factorization, such that the time saving of AHI-S is mostly attributed to the sparse LU factorization. The AHI-S solver is then applied to unsteady perfectly stirred reactors involving extinction and re-ignition. Speed-up factors from 50 to 30,000 are achieved compared with the Strang splitting scheme with the chemistry substeps implicitly integrated with VODE, while speed-up factors of 10–100 are achieved compared with the Strang splitting scheme implemented with the sparse stiff LSODES solver. In the end, the performance of AHI-S is investigated in one-dimensional (1-D) unsteady freely propagating laminar premixed flames for a methane/air mixture, for which the time step size in AHI-S is limited by the fastest transport process. A speed-up factor of approximately 200 is achieved compared with the Strang splitting scheme for fixed time step sizes between 10−8s and 10−6s.}
+}
+
+@article{bib7,
+author = {Brown, Peter N. and Byrne, George D. and Hindmarsh, Alan C.},
+title = {VODE: A Variable-Coefficient ODE Solver},
+journal = {SIAM Journal on Scientific and Statistical Computing},
+volume = {10},
+number = {5},
+pages = {1038-1051},
+year = {1989},
+doi = {10.1137/0910062},
+
+URL = { 
+        https://doi.org/10.1137/0910062
+    
+},
+eprint = { 
+        https://doi.org/10.1137/0910062
+    
+}
+,
+    abstract = { VODE is a new initial value ODE solver for stiff and nonstiff systems. It uses variable-coefficient Adams-Moulton and Backward Differentiation Formula (BDF) methods in Nordsieck form, as taken from the older solvers EPISODE and EPISODEB, treating the Jacobian as full or banded. Unlike the older codes, VODE has a highly flexible user interface that is nearly identical to that of the ODEPACK solver LSODE.In the process, several algorithmic improvements have been made in VODE, aside from the new user interface. First, a change in stepsize and/or order that is decided upon at the end of one successful step is not implemented until the start of the next step, so that interpolations performed between steps use the more correct data. Second, a new algorithm for setting the initial stepsize has been included, which iterates briefly to estimate the required second derivative vector. Efficiency is often greatly enhanced by an added algorithm for saving and reusing the Jacobian matrix J, as it occurs in the Newton matrix, under certain conditions. As an option, this Jacobian-saving feature can be suppressed if the required extra storage is prohibitive. Finally, the modified Newton iteration is relaxed by a scalar factor in the stiff case, as a partial correction for the fact that the scalar coefficient in the Newton matrix may be out of date.The fixed-leading-coefficient form of the BDF methods has been studied independently, and a version of VODE that incorporates it has been developed. This version does show better performance on some problems, but further tuning and testing are needed to make a final evaluation of it.Like its predecessors, VODE demonstrates that multistep methods with fully variable stepsizes and coefficients can outperform fixed-step-interpolatory methods on problems with widely different active time scales. In one comparison test, on a one-dimensional diurnal kinetics-transport problem with a banded internal Jacobian, the run time for VODE was 36 percent lower than that of LSODE without the J-saving algorithm and 49 percent lower with it. The fixed-leading-coefficient version ran slightly faster, by another 12 percent without J-saving and 5 percent with it. All of the runs achieved about the same accuracy. }
+}
+
+@software{cantera,
+author = {D. Goodwin, H.K. Moffat, R.L. Speth},
+title = {Cantera: an Object-Oriented Software Toolkit for Chemical Kinetics, Thermodynamics, and Transport Processes},
+url = {},
+version = {2.5.0},
+date = {2019},
+}
+
+@software{fluent,
+author = {ANSYS, Inc},
+title = {ANSYS fluent user's guide},
+url = {},
+version = {17.2},
+date = {2016},
+}
+
+@software{cfx,
+author = {ANSYS, Inc},
+title = {ANSYS CFX-solver theory guide},
+url = {},
+version = {16.2},
+date = {2015},
+}
