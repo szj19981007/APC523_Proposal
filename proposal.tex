@@ -48,10 +48,10 @@ where $v'_{ki}$ and $v''_{ki}$ are the stoichiometric coefficients for the forwa
  $\chi_k$ is the chemical symbol for the $k$ th species in combustion system.
 Then, the production rate for $k$ th species is given by
 \begin{equation}
-    \frac{d[X_k]}{dt} = \sum_{i=1}^I (v''_{ki}-v'_{ki})q_i \qquad (k = 1, \cdots, K).
+    w_k = \sum_{i=1}^I (v''_{ki}-v'_{ki})q_i \qquad (k = 1, \cdots, K).
     \label{eq:2}
 \end{equation}
-In equation\eqref{eq:2}, $X_k$ is the mole concentration of the $k$ th species, 
+In equation\eqref{eq:2}, $w_k$ is the production rate of the $k$ th species, 
 and $q_i$ is the rate of progress variable for the $i$ th reaction which is calculated by equation\eqref{eq:3}
 \begin{equation}
     q_i = k_{fi}\prod^K_{k=1}\left[X_k\right]^{v'_{ki}}-k_{ri}\prod^K_{k=1}\left[X_k\right]^{v''_{ki}},
@@ -67,12 +67,23 @@ through the equation
 \begin{equation}
     k_{ri} = \frac{k_{fi}}{K_{ci}},
 \end{equation}
-where $K_{ci}$ is the equilibrium constant which is derived from the thermo data of species.
+where $K_{ci}$ is the equilibrium constant derived from the thermo data of species.
 \begin{equation}
     K_{ci}= \exp\left(\frac{\Delta S_i^o}{R}-\frac{\Delta H_i^o}{RT}\right)\left(\frac{P_{atm}}{RT}\right)^{\sum_{k=1}^K(v''_{ki}-v'{ki})}
 \end{equation}
-Equation \eqref{eq:2} is the 
+From all above, the change of mole fractions for species follows the equation below 
+\begin{equation}
+    \frac{d[X_k]}{dt} = V_kX_k + w_k,
+    \label{eq:4}
+\end{equation}
+where $X_k$ is the mole fraction of $k$ th species, $V_kX_k$ is the diffusion term.
+Basically, the job of a chemical solver is to solve equation\eqref{eq:4} 
+using all the parameters given by other equations.
+In this project, our work is to design a parallel chemistry solver for stiff reactions.
+ In another words, we are aiming to figure out an efficient method to solve equation\eqref{eq:4} for stiff reactions
+ and improve its speed by making it parallel.
 \section{Related Works}
+
 \section{Project Targets}
 
 
